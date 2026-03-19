@@ -17,13 +17,30 @@ Part of a pharma AI portfolio covering the full drug development lifecycle — f
 
 ## Screenshots
 
-<!-- Dashboard — transfer list with status badges and summary stats -->
 
-<!-- Run Pipeline tab — live node progress (Gap Analysis → Planner → Drafter) -->
+<img width="1912" height="978" alt="Screenshot 2026-03-19 at 2 18 11 PM" src="https://github.com/user-attachments/assets/84855eb3-359c-4abe-afaf-04649fe9fd00" />
 
-<!-- Gap Analysis — severity-coded gaps table with ICH references -->
+<img width="1303" height="329" alt="Screenshot 2026-03-19 at 2 17 49 PM" src="https://github.com/user-attachments/assets/01dd3246-1752-4249-a01b-7671ae51ef56" />
 
-<!-- Document Draft — streaming markdown with confidence scoring -->
+<img width="1842" height="908" alt="Screenshot 2026-03-19 at 2 19 30 PM" src="https://github.com/user-attachments/assets/7d97dec5-b310-46c4-9cb0-3efc6378f9b7" />
+
+<img width="1497" height="985" alt="Screenshot 2026-03-19 at 2 19 52 PM" src="https://github.com/user-attachments/assets/c8f96016-375a-425a-856e-2bb4763280e5" />
+
+<img width="1041" height="963" alt="Screenshot 2026-03-19 at 2 20 25 PM" src="https://github.com/user-attachments/assets/5503496f-c649-4f28-81b8-8c56fe66a849" />
+
+<img width="1290" height="669" alt="Screenshot 2026-03-19 at 2 20 38 PM" src="https://github.com/user-attachments/assets/6273d350-75e4-481b-8931-45f60924fad9" />
+
+<img width="1321" height="628" alt="Screenshot 2026-03-19 at 2 20 55 PM" src="https://github.com/user-attachments/assets/8d7881a1-7262-43df-b9a2-b64b102f1adb" />
+
+<img width="1396" height="783" alt="Screenshot 2026-03-19 at 2 21 25 PM" src="https://github.com/user-attachments/assets/e2814972-a5e0-4901-8002-9205e6f71979" />
+
+<img width="1314" height="673" alt="Screenshot 2026-03-19 at 2 21 39 PM" src="https://github.com/user-attachments/assets/638eb87c-4d4c-4401-bed5-79037a845916" />
+
+<img width="1314" height="746" alt="Screenshot 2026-03-19 at 2 21 53 PM" src="https://github.com/user-attachments/assets/2f12151d-7b8a-41c8-95d4-5dc3e1abb423" />
+
+<img width="1389" height="790" alt="Screenshot 2026-03-19 at 2 22 08 PM" src="https://github.com/user-attachments/assets/9c728ad5-3c9c-4c83-bf14-4874eadbb904" />
+
+<img width="1314" height="363" alt="Screenshot 2026-03-19 at 2 22 16 PM" src="https://github.com/user-attachments/assets/685ba589-625c-40de-8111-8c53584d63d7" />
 
 ---
 
