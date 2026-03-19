@@ -1,0 +1,69 @@
+MASTER BATCH RECORD — Sitagliptin Phosphate Monohydrate Tablets 100mg
+Batch No: SIT-2024-001
+Batch Size: 150,000 tablets
+Date Issued: 2024-05-20
+
+API CRITICAL NOTES:
+Sitagliptin Phosphate Monohydrate — Polymorphic form control is CRITICAL.
+Form: Monohydrate (Form I) — conversion to anhydrous form occurs above 60°C or at RH < 10%.
+Anhydrous form has significantly reduced dissolution — release failure risk.
+Chiral purity: (R)-enantiomer is pharmacologically active; (S)-enantiomer NMT 0.1% by chiral HPLC.
+
+ENVIRONMENTAL REQUIREMENT: All manufacturing steps under controlled humidity < 40% RH.
+NOTE: Recipharm Stockholm facility environmental monitoring data not provided in this package.
+
+MANUFACTURING STEPS:
+
+1. Dispensing
+   - Weigh Sitagliptin Phosphate Monohydrate: 58.2 kg (equiv. to 50.0 kg free base)
+   - Weigh MCC PH-200: 44.3 kg
+   - Weigh Calcium hydrogen phosphate anhydrous: 30.0 kg
+   - All weighing under controlled humidity (< 40% RH)
+
+2. Wet Granulation (High-Shear)
+   - Load API + MCC + CaHPO4 into high-shear granulator (300 L)
+   - Granulation liquid: purified water (28 L total volume)
+   - Water addition temperature: MUST remain < 30°C (CRITICAL CPP — monohydrate stability)
+   - Granulation endpoint: visual endpoint (granule size ~1–2 mm)
+   - NOTE: Endpoint defined by visual inspection only; no PAT/NIR moisture monitoring at Recipharm
+   - NOTE: Recipharm uses Diosna P600 — Cambrex data from Fielder PMA600; equivalence not established
+
+3. Wet Milling
+   - Conical mill, 4.0mm screen, slow speed
+   - Retain wet granule moisture — avoid over-drying
+
+4. Fluid Bed Drying
+   - Inlet air temperature: 45°C (LOWER THAN STANDARD — critical for monohydrate retention)
+   - Do NOT exceed 60°C inlet air at any point
+   - Target LOD: 3.5–4.5% (narrow range; maintains water of crystallisation)
+   - NOTE: LOD target range is narrow (1.0% window) — Recipharm dryer characterisation and
+     temperature mapping data not available in this package
+
+5. Dry Milling
+   - Conical mill, 1.2mm screen
+   - Yield: NLT 97%
+
+6. Final Blending
+   - Add crospovidone (extragranular): 8.0 kg
+   - Add CaHPO4 anhydrous (extragranular): 6.0 kg
+   - Blend 10 min at 8 rpm
+   - Add sodium stearyl fumarate: 1.5 kg
+   - BLEND 3 MIN ONLY — critical; over-lubrication causes dissolution failure
+   - Blend uniformity: NLT 5 locations, RSD NMT 3.0%
+
+7. Compression
+   - Target hardness: 12–18 kP
+   - Compression force: 15–30 kN
+   - In-process weight check: NMT ± 3% of target weight
+   - NOTE: Humidity in compression area must remain < 40% RH — environmental control not documented for Recipharm
+
+8. Film Coating
+   - Opadry green suspension: 12% w/w solids in purified water
+   - Target weight gain: 3.0% ± 0.5%
+   - Coating under controlled humidity (< 40% RH in coating bay)
+   - NOTE: Recipharm coating suite humidity qualification data absent from this package
+
+9. Packaging
+   - Aluminium-aluminium blister (moisture-critical)
+   - Water vapour transmission rate (WVTR) of blister foil: not verified at Recipharm
+   - NOTE: ACG blister foil proposed vs. Cambrex Alcan foil — WVTR equivalence not demonstrated

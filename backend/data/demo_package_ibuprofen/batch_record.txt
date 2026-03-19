@@ -1,0 +1,62 @@
+MASTER BATCH RECORD — Ibuprofen Film-Coated Tablets 400mg
+Batch No: IBU-2024-001
+Batch Size: 200,000 tablets
+Date Issued: 2024-03-10
+
+API CLASSIFICATION NOTE:
+Ibuprofen is a BCS Class II drug (low solubility, high permeability).
+Particle size control is a CRITICAL PROCESS PARAMETER directly impacting dissolution.
+Sticking/picking is a known compression risk for ibuprofen — punch coating specification required.
+
+MANUFACTURING STEPS:
+
+1. API Pre-milling
+   - Mill Ibuprofen API through 1.5mm screen, Fitzmill M5A
+   - Target d90 < 150 μm, d50 30–80 μm
+   - NOTE: Milling parameters developed on Catalent Fitzmill — Lonza uses Quadro Comil U20;
+     equipment equivalence study not completed
+
+2. Dispensing
+   - Weigh Ibuprofen API: 80.0 kg
+   - Weigh MCC PH-101: 18.0 kg
+   - Weigh Croscarmellose sodium (intragranular): 3.0 kg
+   - All materials: pass compendial identity test prior to use
+
+3. Dry Blending
+   - Load API + intragranular excipients into bin blender (1000 L)
+   - Blend 15 min at 12 rpm
+   - NOTE: Blend uniformity acceptance criteria (RSD < 3.0%) not re-evaluated for Lonza bin blender geometry
+
+4. Roller Compaction
+   - Target ribbon density: 1.1–1.2 g/cm³
+   - Roll pressure: 60–80 bar
+   - NOTE: Roll pressure range not formally justified for Lonza Gerteis Mini-Pactor;
+     Catalent data generated on Alexanderwerk WP200 — equivalence study required
+
+5. Granule Milling
+   - Conical mill, 1.0mm screen
+   - Yield: NLT 95%
+
+6. Final Blending
+   - Add croscarmellose sodium (extragranular): 1.0 kg
+   - Add colloidal silicon dioxide: 0.4 kg
+   - Add magnesium stearate: 0.6 kg, blend 3 min ONLY (over-lubrication risk)
+   - Blend uniformity: sample NLT 5 locations, RSD NMT 3.0%
+
+7. Compression
+   - Target hardness: 10–14 kP
+   - Compression force: 12–25 kN
+   - NOTE: Wide force range not process-validated at receiving site
+   - NOTE: Ibuprofen punch sticking — punch coating specification absent from this document
+   - In-process checks: weight, hardness, thickness every 30 min
+
+8. Film Coating
+   - Opadry II White suspension: 15% w/w solids in purified water
+   - Target weight gain: 2.5% ± 0.5%
+   - Inlet air temperature: 60–70°C
+   - Spray rate: 20–30 g/min
+   - NOTE: Coating parameters not scaled for Lonza Accela-Cota drum size (48"); Catalent data from 24" drum
+
+9. Packaging
+   - Aluminium-aluminium blister pack (moisture-sensitive API per ICH Q1A)
+   - Blister sealing temperature: 180°C — NOTE: dwell time validation not completed at Lonza site

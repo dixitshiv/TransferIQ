@@ -1,0 +1,156 @@
+{
+  "version": "1.0",
+  "reference": "ICH Q8(R2), Q9, Q10, Q11",
+  "requirements": [
+    {
+      "id": "FP-01",
+      "category": "Formulation & Process",
+      "requirement": "Critical Quality Attributes (CQAs) must be defined and justified",
+      "guidance": "ICH Q8(R2) Section 3.2"
+    },
+    {
+      "id": "FP-02",
+      "category": "Formulation & Process",
+      "requirement": "Critical Process Parameters (CPPs) must be identified with justified ranges",
+      "guidance": "ICH Q8(R2) Section 3.3"
+    },
+    {
+      "id": "FP-03",
+      "category": "Formulation & Process",
+      "requirement": "Complete batch formula including all excipients and quantities",
+      "guidance": "ICH Q8(R2) Section 3.2.P.3"
+    },
+    {
+      "id": "FP-04",
+      "category": "Formulation & Process",
+      "requirement": "Manufacturing process description with in-process controls",
+      "guidance": "ICH Q8(R2) Section 3.2.P.3.3"
+    },
+    {
+      "id": "FP-05",
+      "category": "Formulation & Process",
+      "requirement": "Blend uniformity acceptance criteria defined",
+      "guidance": "ICH Q8(R2)"
+    },
+    {
+      "id": "AM-01",
+      "category": "Analytical Methods",
+      "requirement": "All analytical methods must be fully described and validated per ICH Q2(R1)",
+      "guidance": "ICH Q2(R1)"
+    },
+    {
+      "id": "AM-02",
+      "category": "Analytical Methods",
+      "requirement": "Dissolution method transfer validation must be completed at receiving site",
+      "guidance": "ICH Q2(R1), USP <1092>"
+    },
+    {
+      "id": "AM-03",
+      "category": "Analytical Methods",
+      "requirement": "Assay method transfer validation (precision, accuracy, robustness) at receiving site",
+      "guidance": "ICH Q2(R1)"
+    },
+    {
+      "id": "AM-04",
+      "category": "Analytical Methods",
+      "requirement": "Product Development Report referenced in validations must be included",
+      "guidance": "ICH Q8(R2)"
+    },
+    {
+      "id": "AM-05",
+      "category": "Analytical Methods",
+      "requirement": "Compendial methods referenced must be confirmed as current editions",
+      "guidance": "USP General Chapters"
+    },
+    {
+      "id": "SP-01",
+      "category": "Specifications",
+      "requirement": "Release specifications for all CQAs must be provided",
+      "guidance": "ICH Q6A"
+    },
+    {
+      "id": "SP-02",
+      "category": "Specifications",
+      "requirement": "Stability specifications (may differ from release) must be defined",
+      "guidance": "ICH Q6A, Q1A(R2)"
+    },
+    {
+      "id": "SP-03",
+      "category": "Specifications",
+      "requirement": "Out-of-specification (OOS) investigation procedure must be in place",
+      "guidance": "ICH Q10, FDA OOS Guidance"
+    },
+    {
+      "id": "ST-01",
+      "category": "Stability Data",
+      "requirement": "Long-term stability data must support the claimed shelf life",
+      "guidance": "ICH Q1A(R2) Section 2.2.7"
+    },
+    {
+      "id": "ST-02",
+      "category": "Stability Data",
+      "requirement": "Accelerated stability data (6 months minimum) must be provided",
+      "guidance": "ICH Q1A(R2)"
+    },
+    {
+      "id": "ST-03",
+      "category": "Stability Data",
+      "requirement": "Stress testing data (thermal, humidity, photostability) must be provided",
+      "guidance": "ICH Q1A(R2), Q1B"
+    },
+    {
+      "id": "ST-04",
+      "category": "Stability Data",
+      "requirement": "Stability data must be generated for receiving site packaging configuration",
+      "guidance": "ICH Q1A(R2) Section 2.2.6"
+    },
+    {
+      "id": "ST-05",
+      "category": "Stability Data",
+      "requirement": "Container closure integrity data for receiving site must be provided",
+      "guidance": "ICH Q1A(R2), USP <1207>"
+    },
+    {
+      "id": "RD-01",
+      "category": "Regulatory Documentation",
+      "requirement": "Current regulatory filing status and approved specifications must be confirmed",
+      "guidance": "ICH Q10"
+    },
+    {
+      "id": "RD-02",
+      "category": "Regulatory Documentation",
+      "requirement": "Post-approval change control strategy for site change must be documented",
+      "guidance": "ICH Q10, regional site change guidance"
+    },
+    {
+      "id": "RD-03",
+      "category": "Regulatory Documentation",
+      "requirement": "List of all regulatory markets and applicable submissions",
+      "guidance": "ICH Q10"
+    },
+    {
+      "id": "EF-01",
+      "category": "Equipment & Facility",
+      "requirement": "Equipment capability map confirming receiving site can run the process",
+      "guidance": "ICH Q10"
+    },
+    {
+      "id": "EF-02",
+      "category": "Equipment & Facility",
+      "requirement": "Cleaning validation status for shared equipment at receiving site",
+      "guidance": "ICH Q7, EMA cleaning validation guideline"
+    },
+    {
+      "id": "EF-03",
+      "category": "Equipment & Facility",
+      "requirement": "Environmental controls (temperature, humidity, cleanroom classification) must be documented",
+      "guidance": "ICH Q10, GMP Annex 1"
+    },
+    {
+      "id": "EF-04",
+      "category": "Equipment & Facility",
+      "requirement": "Utility qualification (WFI, compressed air, HVAC) at receiving site",
+      "guidance": "GMP Annex 15"
+    }
+  ]
+}

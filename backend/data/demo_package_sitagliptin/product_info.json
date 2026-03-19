@@ -1,0 +1,35 @@
+{
+  "product_name": "Sitagliptin Phosphate Monohydrate Tablets 100mg",
+  "dosage_form": "Immediate-release film-coated tablet",
+  "strength": "100mg (as free base)",
+  "route_of_administration": "Oral",
+  "sending_org": "Cambrex Corporation",
+  "receiving_org": "Recipharm AB",
+  "transfer_type": "Post-approval commercial site addition",
+  "regulatory_status": "sNDA filed — awaiting FDA pre-approval inspection",
+  "therapeutic_area": "Diabetes (Type 2) — DPP-4 Inhibitor",
+  "shelf_life": "24 months",
+  "storage_conditions": "25°C / 60% RH",
+  "critical_quality_attributes": [
+    "Assay (API content)",
+    "Dissolution (Q=80% at 30 min in pH 6.8 phosphate buffer)",
+    "Chiral purity (S-enantiomer NMT 0.1%)",
+    "Polymorphic form (monohydrate Form I confirmed by XRPD)",
+    "Related substances (incl. ICH M7 mutagenic impurities)",
+    "Water content (3.5–4.5% to confirm monohydrate)"
+  ],
+  "critical_process_parameters": [
+    "Granulation water addition temperature (< 30°C for monohydrate stability)",
+    "Fluid bed drying LOD endpoint (3.5–4.5%)",
+    "Compression force",
+    "Blending time post-lubrication (NMT 3 min — over-lubrication risk)"
+  ],
+  "excipients": [
+    "Microcrystalline cellulose PH-200",
+    "Calcium hydrogen phosphate anhydrous",
+    "Crospovidone",
+    "Sodium stearyl fumarate",
+    "Opadry green (film coating)"
+  ],
+  "batch_size": "150,000 tablets"
+}

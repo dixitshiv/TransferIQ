@@ -1,0 +1,57 @@
+STABILITY DATA SUMMARY — Sitagliptin Phosphate Monohydrate Tablets 100mg
+
+Protocol Reference: CAM-STAB-SIT-001, Rev 2
+ICH Q1A(R2) Compliant Study Design
+
+STORAGE CONDITIONS STUDIED (CAMBREX BATCHES ONLY):
+
+1. LONG-TERM STABILITY — 25°C / 60% RH
+   Container: Al-Al blister (Cambrex packaging configuration, Alcan foil)
+   Duration: 18 months complete
+   Timepoints: Initial, 3M, 6M, 12M, 18M
+
+   Results Summary:
+   Timepoint | Assay (%) | Dissolution (%) | Chiral (S,%) | WC (%)  | XRPD Form
+   Initial   |  99.7     |   91.2          |   < 0.05     |  3.92   | Monohydrate
+   3 months  |  99.5     |   90.8          |   < 0.05     |  3.88   | Monohydrate
+   6 months  |  99.3     |   90.4          |   < 0.05     |  3.85   | Monohydrate
+   12 months |  99.1     |   89.9          |   < 0.05     |  3.82   | Monohydrate
+   18 months |  98.9     |   89.5          |   < 0.05     |  3.80   | Monohydrate
+   Status: PASSING all specifications at 18 months
+
+2. ACCELERATED STABILITY — 40°C / 75% RH
+   Container: Al-Al blister (Cambrex packaging configuration)
+   Duration: 6 months complete
+
+   Results Summary:
+   Timepoint | Assay (%) | Dissolution (%) | WC (%)  | XRPD Form
+   Initial   |  99.7     |   91.2          |  3.92   | Monohydrate
+   3 months  |  99.2     |   88.4          |  3.62   | Monohydrate
+   6 months  |  98.5     |   85.8          |  3.38   | Monohydrate (retained)
+   Status: PASSING at 6 months — monohydrate form RETAINED at accelerated conditions
+
+   NOTE: Water content decreased from 3.92% to 3.38% at 40°C/75% RH over 6 months.
+   This approaches the lower limit of 3.5%. Al-Al blister provides adequate moisture barrier
+   at Cambrex site — Recipharm WVTR equivalence for ACG foil not yet confirmed.
+
+3. INTERMEDIATE STABILITY — 30°C / 65% RH
+   Duration: 6 months
+   Status: All parameters within specification — no anomalies
+
+4. PHOTOSTABILITY — ICH Q1B
+   Sitagliptin is LIGHT-SENSITIVE — open dish exposure showed 0.18% increase in related substances.
+   Al-Al blister provides adequate light protection (wrapped condition: no significant change).
+   NOTE: Light protection equivalence for Recipharm blister configuration not confirmed.
+
+CRITICAL GAPS IN STABILITY PACKAGE:
+- All data generated at Cambrex site — no Recipharm confirmatory batches initiated
+- Water content downward trend at accelerated conditions — narrow spec (3.5–4.5%) is a concern
+  if Recipharm WVTR is not equivalent to Cambrex Alcan blister foil
+- XRPD polymorphic form testing: Recipharm cannot perform on-site; external lab plan absent
+- 24-month long-term data not yet available for 24-month shelf life support
+- Confirmatory batches at Recipharm: 0 of 3 required initiated
+
+SHELF LIFE CLAIM: 24 months (based on Cambrex data; projected from 18-month data)
+NOTE: Humidity control is the single most critical environmental variable for this product.
+Recipharm facility qualification for humidity in all production and storage areas must be
+reviewed before placing stability commitment batches.

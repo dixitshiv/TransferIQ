@@ -1,0 +1,69 @@
+MASTER BATCH RECORD — Valsartan Hard Gelatin Capsules 80mg
+Batch No: VAL-2024-001
+Batch Size: 500,000 capsules
+Date Issued: 2024-08-05
+
+CRITICAL REGULATORY NOTICE — NITROSAMINES:
+Valsartan is subject to FDA and EMA nitrosamine guidance (NDMA, NDEA, NMBA).
+A Nitrosamine Drug Substance Related Impurity (NDSRI) risk assessment is MANDATORY
+for ALL manufacturing site changes, supplier changes, and new equipment introductions.
+Receiving site supply chain (API supplier, excipient suppliers, capsule shell supplier)
+must each be individually assessed.
+NOTE: NDSRI assessment for Thermo Fisher supply chain NOT completed in this package.
+
+API FORM NOTICE:
+Valsartan used in this product is partially amorphous (enhanced dissolution — BCS Class II).
+Recrystallisation to crystalline form reduces dissolution significantly.
+Temperature during processing must NOT exceed 50°C. Humidity must remain < 35% RH.
+
+MANUFACTURING STEPS:
+
+1. API Characterisation (Pre-processing Check)
+   - Confirm amorphous content by DSC prior to processing
+   - Tg (glass transition temperature): typically 72–78°C for target amorphous fraction
+   - NOTE: Fareva uses DSC — Thermo Fisher Swindon site does not have DSC capability;
+     amorphous content verification gap must be resolved before manufacture
+
+2. Dispensing
+   - Weigh Valsartan API: 40.0 kg
+   - Weigh MCC PH-101: 22.0 kg
+   - Weigh Crospovidone: 5.0 kg
+   - All dispensing under controlled humidity: < 35% RH
+   - NOTE: Thermo Fisher facility environmental qualification data not confirmed in this document
+
+3. Dry Granulation (Roller Compaction)
+   - Ribbon LOD target: NMT 0.8%
+   - Roll pressure: 40–60 bar
+   - NOTE: Fareva uses Alexanderwerk WP200; Thermo Fisher uses Gerteis Mini-Pactor;
+     equipment equivalence not established — scale-up study required
+
+4. Granule Milling
+   - Conical mill, 0.8mm screen
+   - Yield: NLT 96%
+
+5. Post-milling Tray Drying
+   - Tray drying at 45°C, maximum 24 hours
+   - LOD target: NMT 0.8%
+   - CRITICAL: Do NOT exceed 50°C — amorphous API begins to recrystallise above this temperature
+   - NOTE: Thermo Fisher oven temperature mapping and monitoring protocol not provided
+
+6. Final Blending
+   - Add colloidal silicon dioxide: 0.8 kg
+   - Add crospovidone (extragranular): 2.0 kg
+   - Blend 10 min at 10 rpm
+   - Add magnesium stearate: 0.5 kg, blend 5 min
+   - Blend uniformity: NLT 5 locations, RSD NMT 2.0%
+
+7. Encapsulation
+   - Hard gelatin capsule size 1 (Thermo Fisher proposes ACG Capsules)
+   - NOTE: Fareva qualification data generated with Capsugel Coni-Snap capsules;
+     ACG capsule shell not evaluated — nitrosamine risk from new supplier not assessed
+   - Target fill weight: 320 mg ± 3%
+   - Encapsulation humidity: < 35% RH (CRITICAL — capsule shell integrity)
+   - NOTE: Capsule fill weight uniformity validation at Thermo Fisher site not yet started
+
+8. Packaging
+   - HDPE bottle with induction seal liner
+   - Desiccant: 2g silica gel canister
+   - NOTE: Induction seal validation not yet completed at Thermo Fisher site
+   - Container closure integrity (CCI) testing: not performed on Thermo Fisher packaging components

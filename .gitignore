@@ -1,0 +1,44 @@
+# ── Python ────────────────────────────────────────────────────────────────────
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+
+# ── Node / Frontend ───────────────────────────────────────────────────────────
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# ── Generated at runtime (recreated on first `uvicorn main:app`) ──────────────
+backend/data/transferiq.db
+backend/data/chroma_db/
+backend/data/*.pdf
+
+# ── Environment variables ─────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── IDEs ──────────────────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ── Internal / tooling (not useful for repo visitors) ────────────────────────
+.claude/
+CLAUDE.md
+PLAN.md
+prd_text.txt
+TransferIQ_PRD_v1_0.pdf
+
+# Outdated duplicate — canonical requirements file is backend/requirements.txt
+/requirements.txt

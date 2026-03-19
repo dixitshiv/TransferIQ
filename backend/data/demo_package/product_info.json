@@ -1,0 +1,33 @@
+{
+  "product_name": "Metformin HCl Tablets 500mg",
+  "dosage_form": "Immediate-release oral tablet",
+  "strength": "500mg",
+  "route_of_administration": "Oral",
+  "sending_org": "InnoPharm Inc.",
+  "receiving_org": "BioMed CDMO",
+  "transfer_type": "Post-approval manufacturing site change",
+  "regulatory_status": "Under review - confirmation pending",
+  "therapeutic_area": "Diabetes (Type 2)",
+  "shelf_life": "24 months",
+  "storage_conditions": "25°C / 60% RH",
+  "critical_quality_attributes": [
+    "Assay (API content)",
+    "Dissolution (Q=80% at 45 min)",
+    "Hardness",
+    "Disintegration",
+    "Related substances",
+    "Water content"
+  ],
+  "critical_process_parameters": [
+    "Granulation endpoint (LOD)",
+    "Compression force",
+    "Coating weight gain"
+  ],
+  "excipients": [
+    "Microcrystalline cellulose",
+    "Povidone K30",
+    "Magnesium stearate",
+    "Hypromellose (coating)"
+  ],
+  "batch_size": "100,000 tablets"
+}

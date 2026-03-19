@@ -1,0 +1,67 @@
+ANALYTICAL METHODS PACKAGE — Valsartan Hard Gelatin Capsules 80mg
+
+1. ASSAY — HPLC Method
+   Reference: FAR-AM-VAL-001, Rev 3
+   Instrument: Shimadzu LC-2030 HPLC
+   Column: C8, 150 x 4.6mm, 5μm (Phenomenex Luna C8)
+   Mobile phase: 0.1% formic acid in water : acetonitrile (40:60)
+   Flow rate: 1.2 mL/min
+   Detection: UV at 250nm
+   System suitability: RSD NMT 1.0%
+   Validation: Fully validated per ICH Q2(R1)
+   Method transfer status: COMPLETE
+
+2. DISSOLUTION — USP Apparatus II
+   Reference: FAR-AM-VAL-002, Rev 2
+   Medium: 900 mL pH 6.8 phosphate buffer (no surfactant)
+   Speed: 75 rpm
+   Temperature: 37.0 ± 0.5°C
+   Timepoint: 60 min; Acceptance: Q = 70%
+   Detection: UV at 250nm
+   Method transfer status: PARTIAL — basic transfer complete;
+   paddle speed sensitivity study (±5 rpm equivalence) not repeated at Thermo Fisher.
+   NOTE: Amorphous valsartan dissolution is highly sensitive to paddle speed, medium volume,
+   and vessel geometry. Borderline results (Q=70–78%) observed in Fareva data suggest
+   method robustness is critical at the receiving site.
+
+3. NITROSAMINE IMPURITIES — LC-MS/MS (CRITICAL REGULATORY METHOD)
+   Reference: FAR-AM-VAL-003, Rev 1
+   Analytes: NDMA (limit 96 ng/day), NMBA (limit 96 ng/day), NDEA (limit 26.5 ng/day)
+   Instrument: Waters ACQUITY UPLC + Xevo TQ-S triple quadrupole MS (Fareva)
+   Method: Headspace-GC or LC-MS/MS per USP <1469> and FDA guidance
+   Validation: Validated at Fareva (LOQ 5 ng/mL for each nitrosamine)
+   Method transfer status: NOT STARTED
+   NOTE: CRITICAL REGULATORY REQUIREMENT — FDA requires nitrosamine testing for all valsartan
+   products. Thermo Fisher Swindon does not have a validated LC-MS/MS nitrosamine method.
+   External CRO engagement required; CRO qualification and method transfer timeline
+   not addressed in this package.
+
+4. AMORPHOUS CONTENT — DSC
+   Reference: FAR-AM-VAL-004, Rev 1
+   Method: Differential Scanning Calorimetry (DSC)
+   Specification: Absence of crystalline melt endotherm at 105–115°C confirms amorphous content
+   Validation: Specificity demonstrated vs. crystalline reference standard
+   Method transfer status: NOT STARTED
+   NOTE: CRITICAL GAP — Thermo Fisher Swindon does not have DSC capability.
+   XRPD as alternative is available but semi-quantitative for amorphous fraction.
+   Amorphous content directly impacts dissolution — batch release without this test is a regulatory risk.
+
+5. WATER CONTENT — Karl Fischer Titration
+   Reference: FAR-AM-VAL-005, Rev 1
+   Limit: NMT 1.5%
+   Validation: Complete
+   Method transfer status: COMPLETE
+
+6. RELATED SUBSTANCES — HPLC Gradient
+   Reference: FAR-AM-VAL-006, Rev 2
+   Known impurities: Valsartan N-oxide, tetrazole degradant, valsartan dimer
+   Limits: Individual known impurity NMT 0.15%; unknown NMT 0.10%; total NMT 0.50%
+   Validation: Complete
+   Method transfer status: COMPLETE
+
+MISSING FROM PACKAGE:
+- Nitrosamine risk assessment for Thermo Fisher supply chain not completed
+- Capsule shell material (ACG source) not evaluated for nitrosamine contribution
+- Cleaning validation method not transferred — valsartan health-based exposure limit (HBEL)
+  not established for Thermo Fisher facility
+- DSC or validated XRPD method for amorphous content not available at receiving site

@@ -1,0 +1,142 @@
+[
+  {
+    "id": "hist-001",
+    "product": "Metformin HCl 850mg Tablets",
+    "dosage_form": "Immediate Release Tablet",
+    "api": "Metformin Hydrochloride",
+    "sending_org": "PharmaCo Ltd",
+    "receiving_org": "EuroCDMO GmbH",
+    "year": 2022,
+    "outcome": "Successful",
+    "duration_days": 180,
+    "similarity_score": 0.91,
+    "matched_attributes": ["API class", "Dosage form", "Release mechanism", "Specification framework"],
+    "gap_count": { "CRITICAL": 1, "MAJOR": 3, "MINOR": 4 },
+    "key_gaps": [
+      "Stability data insufficient at receiving site — required 6-month accelerated study",
+      "Dissolution method transfer needed inter-laboratory qualification"
+    ],
+    "lessons_learned": "Early engagement of analytical team critical. Dissolution method transfer added 6 weeks to timeline due to apparatus variability between sites."
+  },
+  {
+    "id": "hist-002",
+    "product": "Metformin HCl 1000mg Tablets",
+    "dosage_form": "Immediate Release Tablet",
+    "api": "Metformin Hydrochloride",
+    "sending_org": "InnoPharm Inc.",
+    "receiving_org": "AsiaPac CDMO",
+    "year": 2021,
+    "outcome": "Successful",
+    "duration_days": 210,
+    "similarity_score": 0.87,
+    "matched_attributes": ["API class", "Dosage form", "Sending organisation", "Release mechanism"],
+    "gap_count": { "CRITICAL": 2, "MAJOR": 2, "MINOR": 6 },
+    "key_gaps": [
+      "Equipment qualification gaps for high-shear granulator at receiving site",
+      "Water activity control requirements not documented in batch record"
+    ],
+    "lessons_learned": "Receiving site humidity control required facility upgrade. Batch scale differences between sites necessitated process re-characterisation study."
+  },
+  {
+    "id": "hist-003",
+    "product": "Metformin XR 500mg Tablets",
+    "dosage_form": "Extended Release Tablet",
+    "api": "Metformin Hydrochloride",
+    "sending_org": "GlobalPharma Inc.",
+    "receiving_org": "BioMed CDMO",
+    "year": 2023,
+    "outcome": "Successful",
+    "duration_days": 270,
+    "similarity_score": 0.74,
+    "matched_attributes": ["API class", "Receiving organisation"],
+    "gap_count": { "CRITICAL": 3, "MAJOR": 4, "MINOR": 3 },
+    "key_gaps": [
+      "Extended release polymer sourcing required qualification of alternate supplier",
+      "In-vitro/in-vivo correlation data not available at receiving site",
+      "Regulatory strategy differences between US and EU submissions"
+    ],
+    "lessons_learned": "Polymer lot variability required additional characterisation studies adding 8 weeks. IVIVC data gap was a regulatory risk that required biowaiver strategy revision."
+  },
+  {
+    "id": "hist-004",
+    "product": "Atorvastatin Calcium 20mg Tablets",
+    "dosage_form": "Immediate Release Tablet",
+    "api": "Atorvastatin Calcium",
+    "sending_org": "GeneriCo Ltd",
+    "receiving_org": "BioMed CDMO",
+    "year": 2022,
+    "outcome": "Delayed",
+    "duration_days": 360,
+    "similarity_score": 0.48,
+    "matched_attributes": ["Dosage form", "Receiving organisation"],
+    "gap_count": { "CRITICAL": 4, "MAJOR": 5, "MINOR": 2 },
+    "key_gaps": [
+      "API particle size distribution specification not defined for receiving site",
+      "Impurity profile differences between sending and receiving site batches"
+    ],
+    "lessons_learned": "Milling step qualification took 12 additional weeks. Different API supplier at receiving site introduced new impurity requiring specification update and regulatory notification."
+  },
+  {
+    "id": "hist-005",
+    "product": "Ibuprofen Tablets 400mg",
+    "dosage_form": "Immediate Release Film-Coated Tablet",
+    "api": "Ibuprofen (BCS Class II)",
+    "sending_org": "Patheon Inc.",
+    "receiving_org": "Recipharm AB",
+    "year": 2022,
+    "outcome": "Successful",
+    "duration_days": 240,
+    "similarity_score": 0.88,
+    "matched_attributes": ["API class", "Dosage form", "BCS classification", "Analytical method type"],
+    "gap_count": { "CRITICAL": 2, "MAJOR": 4, "MINOR": 3 },
+    "key_gaps": [
+      "BCS Class II dissolution method transfer with 0.5% SLS required full inter-laboratory qualification",
+      "Particle size measurement instrument equivalence (Malvern vs. Sympatec) required bridging study",
+      "Roller compaction parameters not validated on receiving site equipment"
+    ],
+    "lessons_learned": "BCS Class II dissolution with surfactant is highly equipment-sensitive — a 3-month dissolution method transfer programme was needed before batch release testing could begin. Instrument equivalence for particle size added 6 weeks. Always validate milling and compaction parameters early in the programme."
+  },
+  {
+    "id": "hist-006",
+    "product": "Sitagliptin Phosphate Monohydrate Tablets 100mg",
+    "dosage_form": "Immediate Release Film-Coated Tablet",
+    "api": "Sitagliptin Phosphate Monohydrate",
+    "sending_org": "Albany Molecular Research Inc. (AMRI)",
+    "receiving_org": "Samsung Biologics (Small Molecule Division)",
+    "year": 2023,
+    "outcome": "Delayed",
+    "duration_days": 420,
+    "similarity_score": 0.93,
+    "matched_attributes": ["API class", "Dosage form", "Polymorphic form control", "Chiral purity requirement", "Humidity-sensitive manufacturing"],
+    "gap_count": { "CRITICAL": 3, "MAJOR": 5, "MINOR": 4 },
+    "key_gaps": [
+      "XRPD capability not available at receiving site — external lab qualification added 10 weeks",
+      "Chiral HPLC method transfer failed initial equivalence — column lot change required",
+      "Narrow LOD drying specification (3.5–4.5%) not achievable with receiving site fluid bed dryer without hardware modification",
+      "Humidity control in manufacturing suites required facility upgrade"
+    ],
+    "lessons_learned": "Polymorphic form control for monohydrate APIs demands XRPD capability at or near the site — remote testing introduces batch release delays. Chiral column lot qualification must be resourced as a dedicated workstream. LOD specification tolerance study (design space work) is recommended before finalising the CPP range. Environmental monitoring at receiving site should be reviewed before committing to commercial manufacture."
+  },
+  {
+    "id": "hist-007",
+    "product": "Valsartan Capsules 80mg",
+    "dosage_form": "Hard Gelatin Capsule",
+    "api": "Valsartan (amorphous, BCS Class II)",
+    "sending_org": "Aurobindo Pharma",
+    "receiving_org": "Siegfried AG",
+    "year": 2021,
+    "outcome": "Delayed",
+    "duration_days": 480,
+    "similarity_score": 0.91,
+    "matched_attributes": ["API class", "Dosage form", "Amorphous API", "Nitrosamine regulatory requirement", "BCS classification"],
+    "gap_count": { "CRITICAL": 5, "MAJOR": 4, "MINOR": 2 },
+    "key_gaps": [
+      "Nitrosamine (NDMA) LC-MS/MS method not validated at receiving site — FDA import alert risk",
+      "Amorphous form confirmation method (DSC) not available at Siegfried site",
+      "Capsule shell supplier change (Capsugel to Qualicaps) triggered new nitrosamine risk assessment",
+      "Accelerated stability failure at 40°C/75% RH due to recrystallisation — shelf life renegotiation required",
+      "Cleaning validation HBEL not established for valsartan at new site"
+    ],
+    "lessons_learned": "Nitrosamine compliance for valsartan is non-negotiable and time-consuming — allow a minimum of 6 months for LC-MS/MS method development, validation, and CRO qualification if in-house capability is absent. Amorphous API site transfers require early equipment assessment (DSC/XRPD). Capsule shell supplier changes are a common oversight that can stall transfer — qualify the full supply chain before site change submission. The accelerated stability failure delayed FDA approval by 8 months."
+  }
+]

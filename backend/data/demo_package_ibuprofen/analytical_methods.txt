@@ -1,0 +1,61 @@
+ANALYTICAL METHODS PACKAGE — Ibuprofen Film-Coated Tablets 400mg
+
+1. ASSAY — HPLC Method
+   Reference: CAT-AM-IBU-001, Rev 2
+   Instrument: Waters Alliance e2695 HPLC (Catalent)
+   Column: C18, 250 x 4.6mm, 5μm (Zorbax SB-C18)
+   Mobile phase: 45:55 phosphate buffer pH 7.4 : acetonitrile
+   Flow rate: 1.5 mL/min
+   Detection: UV at 221nm
+   System suitability: RSD NMT 1.0%, tailing factor NMT 2.0
+   Validation: Fully validated per ICH Q2(R1) — specificity, linearity (0.05–0.15 mg/mL), accuracy, precision
+   Method transfer status: PARTIAL — data exchange complete; equivalence on Lonza Waters ACQUITY UPLC system
+   not yet confirmed (UPLC vs. HPLC column chemistry equivalence needed)
+
+2. DISSOLUTION — USP Apparatus II (Surfactant Medium)
+   Reference: CAT-AM-IBU-002, Rev 1
+   Apparatus: USP Type II (paddle)
+   Medium: 900 mL 0.1N HCl + 0.5% sodium lauryl sulfate (required for BCS Class II sink conditions)
+   Speed: 75 rpm
+   Temperature: 37.0 ± 0.5°C
+   Timepoint: 30 min
+   Acceptance: Q = 75%
+   Detection: UV at 221nm
+   Method transfer status: NOT COMPLETED
+   NOTE: BCS Class II dissolution with surfactant is highly sensitive to paddle speed (±5 rpm effect)
+   and vessel geometry. Full inter-laboratory transfer qualification required at Lonza.
+   Lonza apparatus qualification records not received.
+
+3. PARTICLE SIZE DISTRIBUTION — Laser Diffraction
+   Reference: CAT-AM-IBU-003, Rev 1
+   Instrument: Malvern Mastersizer 2000 (Catalent) — wet dispersion
+   Dispersant: Mineral oil + 0.1% lecithin
+   Specification: d90 < 150 μm, d50 30–80 μm, d10 > 5 μm
+   Validation: Validated (repeatability, intermediate precision)
+   Method transfer status: NOT STARTED
+   NOTE: Lonza site uses Sympatec HELOS (dry dispersion); instrument equivalence study
+   required as wet vs. dry PSD methods may give systematically different d90 results.
+   This is a critical CQA for Ibuprofen dissolution performance.
+
+4. RELATED SUBSTANCES — HPLC Gradient
+   Reference: CAT-AM-IBU-004, Rev 1
+   Column: Same as assay; gradient: 10–90% acetonitrile over 30 min
+   Known impurities: Ibuprofen related compound A (USP), 4-isobutylacetophenone
+   Limits: Individual unknown NMT 0.05%; total impurities NMT 0.20%
+   Validation: Complete
+   Method transfer status: COMPLETE
+
+5. UNIFORMITY OF DOSAGE UNITS — Content Uniformity
+   Method: USP <905> (compendial)
+   No transfer validation required per site policy.
+   Status: Complete
+
+6. HARDNESS / FRIABILITY
+   Methods: USP <1217> and USP <1216> (compendial)
+   No transfer required.
+
+MISSING FROM PACKAGE:
+- Forced degradation (photostability, oxidative stress) data not included
+- Cleaning validation analytical method for ibuprofen not transferred to Lonza
+- Solubility data to support surfactant concentration selection not included in package
+- Method comparison study (Malvern Mastersizer vs. Sympatec HELOS) not initiated

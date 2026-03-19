@@ -1,0 +1,64 @@
+STABILITY DATA SUMMARY — Valsartan Hard Gelatin Capsules 80mg
+
+Protocol Reference: FAR-STAB-VAL-001, Rev 2
+ICH Q1A(R2) Compliant Study Design
+
+STORAGE CONDITIONS STUDIED (FAREVA BATCHES ONLY):
+
+1. LONG-TERM STABILITY — 25°C / 60% RH
+   Container: HDPE bottle + 2g silica gel desiccant (Fareva packaging)
+   Duration: 24 months complete
+   Timepoints: Initial, 3M, 6M, 12M, 18M, 24M
+
+   Results Summary:
+   Timepoint | Assay (%) | Dissolution (%) | RS Total (%) | WC (%)  | NDMA (ng/dose) | DSC Tg (°C)
+   Initial   |  100.2    |   82.4          |   0.10       |  0.72   |   28            |   74.2
+   3 months  |  100.0    |   81.8          |   0.11       |  0.74   |   29            |   73.8
+   6 months  |   99.7    |   81.3          |   0.13       |  0.76   |   30            |   73.5
+   12 months |   99.5    |   79.6          |   0.17       |  0.81   |   32            |   73.1
+   18 months |   99.3    |   77.4          |   0.22       |  0.84   |   35            |   72.8
+   24 months |   99.0    |   75.2          |   0.28       |  0.88   |   38            |   72.2
+   Status: PASSING all specifications at 24 months (dissolution approaching Q=70% at 24M — margin: 5.2%)
+
+   CRITICAL NOTE: Dissolution at 24 months (75.2%) has a margin of only 5.2% above the Q=70% limit.
+   Amorphous valsartan Tg is declining (72.2°C at 24M vs. 74.2°C initial) — indicating slow,
+   progressive recrystallisation. Thermo Fisher site environmental controls are critical.
+
+2. ACCELERATED STABILITY — 40°C / 75% RH
+   Container: HDPE bottle + 2g silica gel desiccant
+   Duration: 6 months complete
+
+   Results Summary:
+   Timepoint | Assay (%) | Dissolution (%) | RS Total (%) | NDMA (ng/dose) | DSC Tg (°C)
+   Initial   |  100.2    |   82.4          |   0.10       |   28            |   74.2
+   3 months  |   99.5    |   74.8          |   0.22       |   41            |   70.1
+   6 months  |   98.7    |   68.1          |   0.38       |   47            |   65.3
+   Status: FAIL at 6 months — dissolution 68.1% is BELOW Q=70% specification
+   DSC Tg at 65.3°C confirms significant amorphous → crystalline conversion at accelerated conditions.
+   NDMA increased from 28 to 47 ng/dose (still within 96 ng/day limit but upward trend noted).
+
+3. INTERMEDIATE STABILITY — 30°C / 65% RH
+   Duration: 12 months complete
+   Dissolution: 78.4% at 12M (within spec; no Tg shift detected by DSC)
+   Status: PASSING
+
+4. PHOTOSTABILITY — ICH Q1B
+   NOT CONDUCTED on capsules in final packaging configuration.
+   NOTE: CRITICAL GAP — Valsartan is not known to be photosensitive, but photostability study
+   on capsules in HDPE bottle has not been performed. Required for regulatory submission.
+
+CRITICAL GAPS IN STABILITY PACKAGE:
+- Accelerated stability FAILURE at 40°C/75% RH — dissolution below specification at 6 months
+  This demonstrates high sensitivity of amorphous valsartan to temperature and humidity.
+  Thermo Fisher site humidity and temperature controls must be demonstrated equivalent to Fareva.
+- NDMA upward trend at accelerated conditions — capsule shell supplier change (ACG vs. Capsugel)
+  may alter nitrosamine profile; accelerated stability with new supplier must be generated.
+- No stability data from Thermo Fisher batches — 0 of 3 confirmatory batches initiated
+- DSC capability gap at Thermo Fisher — Tg monitoring not possible without equipment or external CRO
+- Photostability study not conducted in final container
+
+SHELF LIFE CLAIM: 30 months (based on Fareva data; dissolution margin is narrow)
+NOTE: The accelerated stability failure is a significant regulatory risk for site change submissions.
+FDA and EMA will scrutinise amorphous form stability at the receiving site.
+A comparative dissolution study between Fareva and Thermo Fisher batches is strongly recommended
+before NDA/ANDA supplement submission.

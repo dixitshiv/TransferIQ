@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f5f9; /* slate-100 */
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1; /* slate-300 */
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8; /* slate-400 */
+  }
+}
+
+@layer components {
+  .stat-card {
+    @apply bg-white border border-slate-200 shadow-sm rounded-xl p-5;
+  }
+
+  .data-table {
+    @apply w-full border-collapse text-sm;
+  }
+
+  .data-table th {
+    @apply text-left px-3 py-2 text-[10px] font-semibold tracking-widest uppercase text-slate-500 border-b border-slate-200 bg-slate-50;
+  }
+
+  .data-table td {
+    @apply px-3 py-3 border-b border-slate-100 text-slate-700;
+  }
+
+  .data-table tr:hover td {
+    @apply bg-slate-50;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white shadow-sm text-sm font-medium rounded-lg transition-all disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-white hover:bg-slate-50 text-slate-700 text-sm font-medium rounded-lg transition-all border border-slate-200 shadow-sm disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-lg text-sm transition-all;
+  }
+
+  .input-field {
+    @apply w-full bg-white border border-slate-200 shadow-sm rounded-lg px-3 py-2 text-slate-900 text-sm placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all;
+  }
+
+  .badge-critical {
+    @apply inline-flex items-center px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase bg-red-50 text-red-700 border border-red-200 rounded-md font-mono;
+  }
+
+  .badge-major {
+    @apply inline-flex items-center px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase bg-amber-50 text-amber-700 border border-amber-200 rounded-md font-mono;
+  }
+
+  .badge-minor {
+    @apply inline-flex items-center px-2 py-0.5 text-[10px] font-bold tracking-widest uppercase bg-yellow-50 text-yellow-700 border border-yellow-200 rounded-md font-mono;
+  }
+
+  .status-pill {
+    @apply inline-flex items-center px-2.5 py-0.5 text-xs font-semibold rounded-full;
+  }
+
+  .tab-btn {
+    @apply px-5 py-3 text-sm font-medium border-b-2 transition-colors;
+  }
+
+  .tab-btn-active {
+    @apply border-blue-600 text-blue-600;
+  }
+
+  .tab-btn-inactive {
+    @apply border-transparent text-slate-500 hover:text-slate-800 hover:border-slate-300;
+  }
+}

@@ -1,0 +1,47 @@
+STABILITY DATA SUMMARY — Ibuprofen Film-Coated Tablets 400mg
+
+Protocol Reference: CAT-STAB-IBU-001, Rev 1
+ICH Q1A(R2) Compliant Study Design
+
+STORAGE CONDITIONS STUDIED (CATALENT BATCHES ONLY):
+
+1. LONG-TERM STABILITY — 25°C / 60% RH
+   Container: Al-Al blister (Catalent packaging configuration)
+   Duration: 12 months complete
+   Timepoints: Initial, 3M, 6M, 12M
+
+   Results Summary:
+   Timepoint | Assay (%) | Dissolution (%) | RS Total (%) | PSD d90 (μm)
+   Initial   |  99.8     |   89.2          |   0.06       |   128
+   3 months  |  99.6     |   88.9          |   0.07       |   ND
+   6 months  |  99.4     |   88.1          |   0.08       |   ND
+   12 months |  99.1     |   87.5          |   0.10       |   ND
+   Status: PASSING all specifications at 12 months
+
+2. ACCELERATED STABILITY — 40°C / 75% RH
+   Container: Al-Al blister (Catalent packaging configuration)
+   Duration: 6 months complete
+   Timepoints: Initial, 3M, 6M
+
+   Results Summary:
+   Timepoint | Assay (%) | Dissolution (%) | RS Total (%)
+   Initial   |  99.8     |   89.2          |   0.06
+   3 months  |  99.2     |   86.4          |   0.09
+   6 months  |  98.6     |   82.1          |   0.14
+   Status: PASSING at 6 months accelerated (spec Q=75% — dissolution margin is adequate but narrow)
+
+3. PHOTOSTABILITY — ICH Q1B
+   Product is NOT photosensitive — no significant change observed in open-dish and wrapped conditions.
+   Al-Al blister provides adequate light protection.
+
+CRITICAL GAPS IN STABILITY PACKAGE:
+- All stability data from Catalent production batches ONLY
+- No stability data from Lonza site batches — required per ICH Q10 for site change
+- Confirmatory batches at Lonza: 0 of 3 required initiated
+- 24-month long-term data not yet available (study ongoing — 36-month shelf life claimed)
+- Stability data specific to Lonza packaging configuration (blister sealing) not generated
+- Particle size stability: d90 not monitored post-initial timepoint (BCS Class II risk)
+
+SHELF LIFE CLAIM: 36 months (based on Catalent data only)
+NOTE: Lonza confirmatory stability batches must be placed within 3 months of first commercial
+batch per post-approval change protocol (CBE-30 or PAS depending on market).

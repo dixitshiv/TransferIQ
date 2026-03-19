@@ -1,0 +1,50 @@
+ANALYTICAL METHODS PACKAGE — Metformin HCl Tablets 500mg
+
+1. ASSAY — HPLC Method
+   Reference: INN-AM-001, Rev 3
+   Instrument: Agilent 1260 HPLC
+   Column: C18, 150 x 4.6mm, 5μm
+   Mobile phase: 0.1% TFA in water : acetonitrile (85:15)
+   Flow rate: 1.0 mL/min
+   Detection: UV at 232nm
+   Injection volume: 10 μL
+   Run time: 10 min
+   System suitability: RSD NMT 1.0%, tailing factor NMT 2.0
+   Validation status: Fully validated per ICH Q2(R1) — specificity, linearity, accuracy, precision, range
+   Method transfer status: PARTIAL — precision and accuracy data transferred; ROBUSTNESS data not yet generated at BioMed CDMO
+
+2. DISSOLUTION — USP Apparatus II
+   Reference: INN-AM-002, Rev 2
+   Apparatus: USP Type II (paddle)
+   Medium: 900 mL 0.1N HCl
+   Speed: 75 rpm
+   Temperature: 37.0 ± 0.5°C
+   Timepoint: 45 min
+   Acceptance: Q = 80%
+   Analytical method: UV at 232nm
+   Method transfer status: NOT COMPLETED — dissolution method transfer validation has not been performed at BioMed CDMO
+   NOTE: This is a critical gap — dissolution is a key release and stability test
+
+3. RELATED SUBSTANCES — HPLC
+   Reference: INN-AM-003, Rev 1
+   Same column and instrument as assay
+   Gradient method: 0 to 30% acetonitrile over 20 min
+   Limits: Individual unknown NMT 0.10%, total impurities NMT 0.50%
+   Validation: Complete
+
+4. WATER CONTENT — Karl Fischer
+   Reference: INN-AM-004, Rev 1
+   Method: Volumetric KF titration
+   Limit: NMT 0.5%
+   Validation: Complete
+
+5. COMPENDIAL METHODS (USP)
+   - Disintegration: USP <701>
+   - Hardness: USP <1217>
+   - Friability: USP <1216>
+   - Content uniformity: USP <905>
+   All compendial — no transfer validation required per policy
+
+MISSING FROM PACKAGE:
+- Product Development Report (PDR) is referenced in method validations but not included in transfer package
+- Citations to original development studies are absent

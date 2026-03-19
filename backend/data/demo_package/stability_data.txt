@@ -1,0 +1,43 @@
+STABILITY DATA SUMMARY — Metformin HCl Tablets 500mg
+
+Protocol Reference: INN-STAB-001, Rev 2
+ICH Q1A(R2) Compliant Study Design
+
+STORAGE CONDITIONS STUDIED:
+
+1. ACCELERATED STABILITY — 40°C / 75% RH
+   Container: HDPE bottle (InnoPharm packaging configuration)
+   Duration: 12 months (completed)
+   Timepoints: Initial, 3M, 6M, 9M, 12M
+
+   Results Summary:
+   Timepoint | Assay (%) | Dissolution (%) | RS Total (%) | Water (%)
+   Initial   |  100.2    |   92.1          |   0.12       |   0.31
+   3 months  |   99.8    |   91.5          |   0.13       |   0.33
+   6 months  |   99.1    |   90.3          |   0.15       |   0.34
+   9 months  |   98.7    |   89.8          |   0.17       |   0.35
+   12 months |   98.2    |   88.6          |   0.19       |   0.37
+   Status: PASSING all specifications at 12 months accelerated
+
+2. LONG-TERM STABILITY — 25°C / 60% RH
+   Container: HDPE bottle (InnoPharm packaging configuration)
+   Duration: 6 months ONLY (study ongoing — 24-month data not yet available)
+   NOTE: CRITICAL GAP — Long-term stability data to support 24-month shelf life is incomplete
+   Only 6-month interim data is included in this package
+   Full 24-month dataset expected Q4 2025
+
+   Results Summary (6 months only):
+   Timepoint | Assay (%) | Dissolution (%) | RS Total (%)
+   Initial   |  100.2    |   92.1          |   0.12
+   3 months  |  100.0    |   92.0          |   0.12
+   6 months  |   99.9    |   91.8          |   0.13
+
+3. STRESS TESTING
+   Photostability: ICH Q1B compliant, product is not photosensitive
+   Thermal stress (60°C, 1 week): Assay drop of 0.4%, within acceptable range
+   Humidity stress (75% RH open dish, 1 week): Water content increase to 0.8%, reversible
+
+MISSING FROM PACKAGE:
+- Long-term stability beyond 6 months (critical for shelf-life justification)
+- Stability data for BioMed CDMO packaging configuration (container closure not evaluated)
+- Freeze-thaw data (not applicable for solid dosage form — acceptable)

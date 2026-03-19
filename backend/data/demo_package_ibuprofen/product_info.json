@@ -1,0 +1,35 @@
+{
+  "product_name": "Ibuprofen Film-Coated Tablets 400mg",
+  "dosage_form": "Immediate-release film-coated tablet",
+  "strength": "400mg",
+  "route_of_administration": "Oral",
+  "sending_org": "Catalent Pharma Solutions",
+  "receiving_org": "Lonza Group AG",
+  "transfer_type": "New product introduction — commercial scale-up",
+  "regulatory_status": "IND filed — Phase III clinical manufacturing",
+  "therapeutic_area": "Pain and Inflammation (NSAID)",
+  "shelf_life": "36 months",
+  "storage_conditions": "25°C / 60% RH",
+  "critical_quality_attributes": [
+    "Assay (API content)",
+    "Dissolution (Q=75% at 30 min in 0.1N HCl + 0.5% SLS)",
+    "Particle size distribution (d90 < 150 μm)",
+    "Hardness",
+    "Related substances",
+    "Uniformity of dosage units"
+  ],
+  "critical_process_parameters": [
+    "Milling speed and screen size (d90 control)",
+    "Roller compaction roll pressure (60–80 bar)",
+    "Compression force (12–25 kN)",
+    "Coating inlet temperature and spray rate"
+  ],
+  "excipients": [
+    "Microcrystalline cellulose PH-101",
+    "Croscarmellose sodium",
+    "Colloidal silicon dioxide",
+    "Magnesium stearate",
+    "Opadry II White (film coating)"
+  ],
+  "batch_size": "200,000 tablets"
+}

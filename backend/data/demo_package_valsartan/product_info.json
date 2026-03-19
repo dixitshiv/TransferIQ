@@ -1,0 +1,36 @@
+{
+  "product_name": "Valsartan Hard Gelatin Capsules 80mg",
+  "dosage_form": "Hard gelatin capsule (granule fill)",
+  "strength": "80mg",
+  "route_of_administration": "Oral",
+  "sending_org": "Fareva SA",
+  "receiving_org": "Thermo Fisher Scientific (Pharma Services)",
+  "transfer_type": "Generic product — first commercial ANDA transfer",
+  "regulatory_status": "ANDA approved — pre-launch commercial scale-up",
+  "therapeutic_area": "Cardiovascular (Hypertension) — Angiotensin II Receptor Blocker",
+  "shelf_life": "30 months",
+  "storage_conditions": "25°C / 60% RH (protect from moisture)",
+  "critical_quality_attributes": [
+    "Assay (API content)",
+    "Dissolution (Q=70% at 60 min in pH 6.8 phosphate buffer)",
+    "Nitrosamine impurities (NDMA NMT 96 ng/day; NMBA NMT 96 ng/day)",
+    "Amorphous content (XRPD/DSC — recrystallisation risk)",
+    "Water content (NMT 1.5%)",
+    "Uniformity of fill weight"
+  ],
+  "critical_process_parameters": [
+    "Roller compaction roll pressure (40–60 bar)",
+    "Drying temperature (NMT 50°C — amorphous API sensitivity)",
+    "Granule LOD endpoint (NMT 0.8%)",
+    "Encapsulation humidity (< 35% RH)",
+    "Capsule fill weight and tamping force"
+  ],
+  "excipients": [
+    "Microcrystalline cellulose PH-101",
+    "Colloidal silicon dioxide",
+    "Crospovidone",
+    "Magnesium stearate",
+    "Hard gelatin capsule shells size 1"
+  ],
+  "batch_size": "500,000 capsules"
+}

@@ -1,0 +1,64 @@
+ANALYTICAL METHODS PACKAGE — Sitagliptin Phosphate Monohydrate Tablets 100mg
+
+1. ASSAY — HPLC Method
+   Reference: CAM-AM-SIT-001, Rev 4
+   Instrument: Agilent 1260 Infinity HPLC
+   Column: C18, 150 x 4.6mm, 3.5μm (Zorbax Eclipse Plus)
+   Mobile phase: 10mM ammonium formate pH 3.5 : acetonitrile (60:40)
+   Flow rate: 1.0 mL/min
+   Detection: UV at 267nm
+   System suitability: RSD NMT 0.5%, tailing NMT 2.0
+   Validation: Fully validated per ICH Q2(R1)
+   Method transfer status: COMPLETE — all equivalence criteria met at Recipharm site
+
+2. CHIRAL PURITY — Chiral HPLC
+   Reference: CAM-AM-SIT-002, Rev 2
+   Instrument: Agilent 1260 with chiral column
+   Column: Chiralpak IA, 250 x 4.6mm, 5μm
+   Mobile phase: n-hexane : ethanol (70:30) + 0.1% TFA
+   Flow rate: 1.0 mL/min
+   Limit: (S)-enantiomer NMT 0.1%
+   Validation: Validated (specificity, LOQ 0.02%, linearity 0.02–0.2%)
+   Method transfer status: PARTIAL — column qualification complete;
+   system suitability criteria (Rs NLT 2.0 between R and S peaks) not consistently met at Recipharm.
+   NOTE: CRITICAL — Chiral purity is a regulatory requirement; method must be fully transferred
+   before batch release. Chiralpak IA column lot-to-lot variability requires careful qualification.
+
+3. POLYMORPHIC FORM — X-Ray Powder Diffraction (XRPD)
+   Reference: CAM-AM-SIT-003, Rev 1
+   Method: XRPD with Cu-Kα radiation
+   Specification: Confirms monohydrate Form I via characteristic peaks at 2θ: 10.2°, 16.8°, 20.5°
+   Validation: Specificity demonstrated (Form I vs. anhydrous Form II discrimination)
+   Method transfer status: NOT STARTED
+   NOTE: CRITICAL GAP — Recipharm Stockholm does not have on-site XRPD capability.
+   External laboratory qualification required; sample chain-of-custody and turnaround time
+   for batch release testing not addressed in this package.
+
+4. DISSOLUTION — USP Apparatus II
+   Reference: CAM-AM-SIT-004, Rev 2
+   Medium: 900 mL pH 6.8 phosphate buffer (no surfactant)
+   Speed: 50 rpm
+   Temperature: 37.0 ± 0.5°C
+   Timepoints: 15, 30 min; specification Q=80% at 30 min
+   Method transfer status: COMPLETE — equivalence demonstrated
+
+5. WATER CONTENT — Karl Fischer Titration
+   Reference: CAM-AM-SIT-005, Rev 1
+   Method: Volumetric KF
+   Specification: 3.5–4.5% (narrow — confirms monohydrate stoichiometry)
+   Validation: Complete
+   Method transfer status: COMPLETE
+   NOTE: Water content is used as a surrogate confirmation of polymorphic form retention.
+
+6. RELATED SUBSTANCES — HPLC Gradient (ICH M7)
+   Reference: CAM-AM-SIT-006, Rev 3
+   Known impurities evaluated for mutagenic potential per ICH M7
+   Acceptable daily intake limits applied per ICH M7 threshold of toxicological concern
+   Method transfer status: PARTIAL — ICH M7 mutagenic impurity thresholds reviewed at Recipharm;
+   confirmatory spiking study to demonstrate quantification at TTC level not yet performed.
+
+MISSING FROM PACKAGE:
+- XRPD capability assessment for Recipharm site (or qualified external lab) not completed
+- Nitrosamine risk assessment (NDSRI per EMA 2023 guidance) not completed for Recipharm supply chain
+- Cleaning validation analytical method for chiral impurity not transferred
+- Container closure integrity (WVTR) comparison for ACG vs. Alcan blister foils not performed

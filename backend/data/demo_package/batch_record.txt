@@ -1,0 +1,47 @@
+MASTER BATCH RECORD — Metformin HCl Tablets 500mg
+Batch No: MET-2024-001
+Batch Size: 100,000 tablets
+Date Issued: 2024-01-15
+
+MANUFACTURING STEPS:
+
+1. Dispensing
+   - Weigh Metformin HCl: 50.0 kg
+   - Weigh MCC PH102: 8.5 kg
+   - Weigh PVP K30: 2.0 kg
+   - Check: All materials pass identity test
+
+2. Wet Granulation
+   - Load API and MCC into high-shear granulator
+   - Add PVP K30 solution (10% w/w in purified water)
+   - Granulate until visual endpoint (approximately 5-8 min)
+   - NOTE: LOD target 1.5-2.5% — specific CPP range not justified in this document
+
+3. Drying
+   - Fluid bed dryer, inlet air 60°C
+   - Dry until LOD < 1.0%
+
+4. Milling
+   - Pass through 1.0mm screen
+   - Yield check: NLT 95%
+
+5. Blending
+   - Add magnesium stearate (0.5% w/w)
+   - Blend 5 minutes in bin blender
+   - NOTE: Blend uniformity acceptance criteria not specified
+
+6. Compression
+   - Target hardness: 8-12 kP
+   - Compression force range: 10-20 kN (justification for range not provided)
+   - In-process checks: weight, hardness, thickness every 30 min
+
+7. Film Coating
+   - HPMC-based coating suspension (12% w/w solids)
+   - Target weight gain: 3.0% ± 0.5%
+   - Inlet air temperature: 55-65°C
+   - Spray rate: 15-25 g/min (not optimized for receiving site equipment)
+
+8. Packaging
+   - HDPE bottle with child-resistant cap
+   - Desiccant: 1g silica gel canister
+   - NOTE: Container closure integrity data for BioMed CDMO facility not included
