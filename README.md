@@ -10,13 +10,11 @@ Part of a pharma AI portfolio covering the full drug development lifecycle — f
 
 ## Demo
 
-<!-- VIDEO PLACEHOLDER -->
-> Video walkthrough coming soon
+Video Demo - https://drive.google.com/file/d/1UnaI9-1UsbeNNC4mU-NLNsGVs6t9VNCy/view?usp=sharing
 
 ---
 
 ## Screenshots
-
 
 <img width="1912" height="978" alt="Screenshot 2026-03-19 at 2 18 11 PM" src="https://github.com/user-attachments/assets/84855eb3-359c-4abe-afaf-04649fe9fd00" />
 
