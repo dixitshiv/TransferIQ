@@ -36,7 +36,7 @@ export default function Layout() {
               Dashboard
             </NavLink>
             <a
-              href="http://localhost:8000/docs"
+              href={`${window.location.protocol}//${window.location.hostname}:8000/docs`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-500 hover:text-slate-900 transition-colors"

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import type { Transfer, CreateTransferRequest, Gap, Task, DraftDocument, AuditEvent, ConfidenceScore, HistoricalComparator } from './types'
+import type { Transfer, CreateTransferRequest, Gap, Task, DraftDocument, AuditEvent, ConfidenceScore, HistoricalComparator, PipelineEvent } from './types'
 
 const http = axios.create({ baseURL: '/api' })
 
@@ -139,6 +139,55 @@ export function streamDraft(
               if (parsed.status === 'complete') onComplete()
             } catch {
               // ignore
+            }
+          }
+        }
+      }
+    }
+  }).catch(err => {
+    if (err.name !== 'AbortError') onError(err)
+  })
+
+  return () => controller.abort()
+}
+
+/** Opens a POST SSE stream for the full LangGraph pipeline. Returns a cleanup function. */
+export function streamPipeline(
+  transferId: string,
+  docType: string,
+  onEvent: (event: PipelineEvent) => void,
+  onError: (err: unknown) => void,
+): () => void {
+  const controller = new AbortController()
+
+  fetch(`/api/transfers/${transferId}/run-pipeline`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ doc_type: docType }),
+    signal: controller.signal,
+  }).then(async res => {
+    if (!res.ok) {
+      onError(new Error(`HTTP ${res.status}`))
+      return
+    }
+    const reader = res.body!.getReader()
+    const decoder = new TextDecoder()
+    let buffer = ''
+
+    while (true) {
+      const { done, value } = await reader.read()
+      if (done) break
+      buffer += decoder.decode(value, { stream: true })
+      const lines = buffer.split('\n')
+      buffer = lines.pop() ?? ''
+      for (const line of lines) {
+        if (line.startsWith('data: ')) {
+          const raw = line.slice(6).trim()
+          if (raw) {
+            try {
+              onEvent(JSON.parse(raw))
+            } catch {
+              // ignore parse errors
             }
           }
         }

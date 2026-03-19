@@ -5,6 +5,8 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3.2")
+OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
+OLLAMA_NUM_CTX = int(os.getenv("OLLAMA_NUM_CTX", "16384"))
 
 PROMPT = ChatPromptTemplate.from_messages([
     ("system", """You are a pharmaceutical project manager specializing in tech transfer.
@@ -30,7 +32,7 @@ Generate the master transfer plan as a JSON array.""")
 
 
 def run_planner(product: str, sending_org: str, receiving_org: str, gaps: list[dict]) -> list[dict]:
-    llm = OllamaLLM(model=OLLAMA_MODEL, temperature=0)
+    llm = OllamaLLM(model=OLLAMA_MODEL, temperature=0, base_url=OLLAMA_HOST, num_ctx=OLLAMA_NUM_CTX)
     parser = JsonOutputParser()
     chain = PROMPT | llm | parser
 

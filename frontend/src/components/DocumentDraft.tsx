@@ -26,7 +26,6 @@ export default function DocumentDraft({ transferId }: { transferId: string }) {
   const [error, setError] = useState<string | null>(null)
   const [complete, setComplete] = useState(false)
   const [localStatus, setLocalStatus] = useState<DocumentStatus>('Draft')
-  const [reviewNotes, setReviewNotes] = useState('')
   const [showConfidence, setShowConfidence] = useState(false)
   const [editMode, setEditMode] = useState(false)
   const [editContent, setEditContent] = useState('')
@@ -43,7 +42,6 @@ export default function DocumentDraft({ transferId }: { transferId: string }) {
   const { data: savedDraft, refetch: refetchDraft } = useQuery({
     queryKey: ['draft', transferId, docType],
     queryFn: () => api.getDraft(transferId, docType),
-    enabled: false,
     retry: false,
   })
 
@@ -114,7 +112,6 @@ export default function DocumentDraft({ transferId }: { transferId: string }) {
     setComplete(false)
     setError(null)
     setLocalStatus('Draft')
-    setReviewNotes('')
     setShowConfidence(false)
     setEditMode(false)
   }
@@ -350,27 +347,6 @@ export default function DocumentDraft({ transferId }: { transferId: string }) {
             </div>
           )}
 
-          {/* Review notes */}
-          {complete && effectiveStatus !== 'Approved' && (
-            <div className="px-5 py-4 border-t border-slate-200 bg-slate-50/50">
-              <label className="block text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-1.5">
-                Review Notes
-              </label>
-              <textarea
-                className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-700 shadow-sm focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 resize-none font-medium"
-                rows={3}
-                placeholder="Add reviewer comments before approving..."
-                value={reviewNotes}
-                onChange={e => setReviewNotes(e.target.value)}
-              />
-            </div>
-          )}
-          {complete && effectiveStatus === 'Approved' && reviewNotes && (
-            <div className="px-5 py-4 border-t border-slate-200 bg-slate-50/50">
-              <p className="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-1">Review Notes</p>
-              <p className="text-sm text-slate-700 font-medium">{reviewNotes}</p>
-            </div>
-          )}
         </div>
       ) : !streaming ? (
         <div className="border border-dashed border-slate-300 bg-slate-50/50 rounded-xl px-6 py-16 text-center">

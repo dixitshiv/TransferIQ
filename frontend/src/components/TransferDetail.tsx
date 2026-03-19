@@ -1,13 +1,14 @@
 import { useState, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
-import { api } from '../api'
-import type { Transfer, AuditEvent, HistoricalComparator } from '../types'
+import { api, streamPipeline } from '../api'
+import type { Transfer, AuditEvent, HistoricalComparator, PipelineEvent } from '../types'
+import { DOC_TYPES } from '../types'
 import GapAnalysis from './GapAnalysis'
 import TransferPlan from './TransferPlan'
 import DocumentDraft from './DocumentDraft'
 
-type Tab = 'overview' | 'gaps' | 'plan' | 'drafts'
+type Tab = 'overview' | 'gaps' | 'plan' | 'drafts' | 'pipeline'
 
 const STATUS_COLORS: Record<string, string> = {
   'In Progress': 'bg-blue-50 text-blue-700 border-blue-200',
@@ -84,6 +85,7 @@ export default function TransferDetail() {
 
   const tabs: { key: Tab; label: string }[] = [
     { key: 'overview', label: 'Overview' },
+    { key: 'pipeline', label: 'Run Pipeline' },
     { key: 'gaps', label: 'Gap Analysis' },
     { key: 'plan', label: 'Transfer Plan' },
     { key: 'drafts', label: 'Document Drafts' },
@@ -163,6 +165,9 @@ export default function TransferDetail() {
         )}
         {activeTab === 'drafts' && (
           <DocumentDraft transferId={transfer.id} />
+        )}
+        {activeTab === 'pipeline' && (
+          <PipelineTab transferId={transfer.id} />
         )}
       </div>
     </div>
@@ -591,6 +596,237 @@ function InfoField({ label, value, mono }: { label: string; value: string; mono?
     <div className="flex items-start justify-between gap-4 text-[13px] py-2 border-b border-slate-100 last:border-0">
       <span className="text-slate-500 font-medium shrink-0">{label}</span>
       <span className={`text-slate-900 text-right font-medium ${mono ? 'font-mono text-xs' : ''}`}>{value}</span>
+    </div>
+  )
+}
+
+type PipelineNodeKey = 'gap_analysis' | 'planner' | 'drafter'
+type NodeStatus = 'pending' | 'running' | 'complete' | 'error'
+interface NodeState { status: NodeStatus; count?: string }
+
+const PIPELINE_NODES: { key: PipelineNodeKey; label: string; description: string }[] = [
+  { key: 'gap_analysis', label: 'Gap Analysis', description: 'ReAct agent · ICH Q8/Q9/Q10 tools' },
+  { key: 'planner',      label: 'Planner',      description: 'LCEL chain → task list' },
+  { key: 'drafter',      label: 'Drafter',      description: 'LCEL chain → draft document' },
+]
+
+const INITIAL_NODES: Record<PipelineNodeKey, NodeState> = {
+  gap_analysis: { status: 'pending' },
+  planner:      { status: 'pending' },
+  drafter:      { status: 'pending' },
+}
+
+function PipelineTab({ transferId }: { transferId: string }) {
+  const queryClient = useQueryClient()
+  const [docType, setDocType] = useState(DOC_TYPES[0].value)
+  const [running, setRunning] = useState(false)
+  const [done, setDone] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [nodes, setNodes] = useState<Record<PipelineNodeKey, NodeState>>(INITIAL_NODES)
+  const cleanupRef = useRef<(() => void) | null>(null)
+
+  const handleRun = () => {
+    if (cleanupRef.current) cleanupRef.current()
+    setRunning(true)
+    setDone(false)
+    setError(null)
+    setNodes({ ...INITIAL_NODES, gap_analysis: { status: 'running' } })
+
+    cleanupRef.current = streamPipeline(
+      transferId,
+      docType,
+      (event: PipelineEvent) => {
+        if (event.node === 'gap_analysis' && event.status === 'complete') {
+          setNodes(prev => ({
+            ...prev,
+            gap_analysis: { status: 'complete', count: `${event.gaps?.length ?? 0} gaps found` },
+            planner: { status: 'running' },
+          }))
+        } else if (event.node === 'planner' && event.status === 'complete') {
+          setNodes(prev => ({
+            ...prev,
+            planner: { status: 'complete', count: `${event.tasks?.length ?? 0} tasks` },
+            drafter: { status: 'running' },
+          }))
+        } else if (event.node === 'drafter' && event.status === 'complete') {
+          setNodes(prev => ({ ...prev, drafter: { status: 'complete', count: 'Draft ready' } }))
+        } else if (event.status === 'pipeline_complete') {
+          setRunning(false)
+          setDone(true)
+          queryClient.invalidateQueries({ queryKey: ['gap-analysis', transferId] })
+          queryClient.invalidateQueries({ queryKey: ['plan', transferId] })
+          queryClient.invalidateQueries({ queryKey: ['draft', transferId] })
+          queryClient.invalidateQueries({ queryKey: ['transfer', transferId] })
+          queryClient.invalidateQueries({ queryKey: ['audit-log', transferId] })
+        }
+      },
+      (err) => {
+        console.error(err)
+        setError('Pipeline failed. Make sure a package is loaded and the backend is running.')
+        setRunning(false)
+        setNodes(prev => {
+          const updated = { ...prev }
+          for (const key of Object.keys(updated) as PipelineNodeKey[]) {
+            if (updated[key].status === 'running') updated[key] = { status: 'error' }
+          }
+          return updated
+        })
+      },
+    )
+  }
+
+  return (
+    <div className="space-y-6">
+      {/* Header card */}
+      <div className="border border-slate-200 shadow-sm bg-white rounded-xl p-6">
+        <div className="flex items-start justify-between gap-4">
+          <div className="flex-1">
+            <h2 className="text-sm font-bold text-slate-900 mb-1">LangGraph Pipeline</h2>
+            <p className="text-xs text-slate-500 font-medium leading-relaxed mb-4">
+              Runs the full <span className="font-mono text-blue-700">StateGraph</span>: Gap Analysis → Planner → Drafter
+              in a single orchestrated SSE stream. Results are saved and reflected in all other tabs.
+            </p>
+            <div className="max-w-sm">
+              <label className="block text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-1.5">
+                Document to Draft
+              </label>
+              <select
+                className="input-field"
+                value={docType}
+                onChange={e => setDocType(e.target.value)}
+                disabled={running}
+              >
+                {DOC_TYPES.map(dt => (
+                  <option key={dt.value} value={dt.value}>{dt.label}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <button className="btn-primary shrink-0 mt-8" onClick={handleRun} disabled={running}>
+            {running ? (
+              <>
+                <svg className="animate-spin w-3.5 h-3.5" viewBox="0 0 14 14" fill="none">
+                  <circle cx="7" cy="7" r="5.5" stroke="currentColor" strokeWidth="1.5" strokeDasharray="17 8" strokeLinecap="round" />
+                </svg>
+                Running Pipeline...
+              </>
+            ) : (
+              <>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                {done ? 'Re-run Pipeline' : 'Run Full Pipeline'}
+              </>
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Error */}
+      {error && (
+        <div className="border border-red-200 bg-red-50 rounded-xl px-4 py-3 text-sm text-red-600 font-medium">
+          {error}
+        </div>
+      )}
+
+      {/* Node progress visualization */}
+      <div className="border border-slate-200 shadow-sm bg-white rounded-xl overflow-hidden">
+        <div className="px-5 py-3 bg-slate-50 border-b border-slate-100">
+          <h3 className="text-[10px] font-semibold tracking-widest uppercase text-slate-500">Pipeline Execution</h3>
+        </div>
+        <div className="p-10">
+          <div className="flex items-start justify-center">
+            {PIPELINE_NODES.map((node, i) => {
+              const state = nodes[node.key]
+              const isRunning  = state.status === 'running'
+              const isComplete = state.status === 'complete'
+              const isError    = state.status === 'error'
+              const nextDone   = i < PIPELINE_NODES.length - 1 && nodes[PIPELINE_NODES[i + 1].key].status !== 'pending'
+
+              return (
+                <div key={node.key} className="flex items-start">
+                  <div className="flex flex-col items-center w-40">
+                    {/* Circle */}
+                    <div className={`w-14 h-14 rounded-full flex items-center justify-center border-2 transition-all duration-500 ${
+                      isComplete ? 'bg-emerald-500 border-emerald-500 shadow-md' :
+                      isRunning  ? 'bg-blue-600 border-blue-600 shadow-md' :
+                      isError    ? 'bg-red-500 border-red-500' :
+                                   'bg-slate-100 border-slate-300'
+                    }`}>
+                      {isComplete ? (
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                          <path d="M4 10l4 4 8-8" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      ) : isRunning ? (
+                        <svg className="animate-spin w-6 h-6 text-white" viewBox="0 0 14 14" fill="none">
+                          <circle cx="7" cy="7" r="5.5" stroke="currentColor" strokeWidth="1.5" strokeDasharray="17 8" strokeLinecap="round" />
+                        </svg>
+                      ) : isError ? (
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                          <path d="M6 6l8 8M14 6l-8 8" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+                        </svg>
+                      ) : (
+                        <span className="text-slate-400 text-lg font-bold">{i + 1}</span>
+                      )}
+                    </div>
+                    {/* Label */}
+                    <p className={`text-xs font-bold mt-3 tracking-wide uppercase text-center ${
+                      isComplete ? 'text-emerald-600' :
+                      isRunning  ? 'text-blue-600' :
+                      isError    ? 'text-red-600' :
+                                   'text-slate-400'
+                    }`}>{node.label}</p>
+                    {/* Description */}
+                    <p className="text-[10px] text-slate-400 font-mono text-center mt-1 leading-tight">{node.description}</p>
+                    {/* Result badge */}
+                    {state.count && (
+                      <span className="mt-2 text-[10px] font-mono font-bold px-2 py-0.5 rounded-md border text-emerald-700 bg-emerald-50 border-emerald-200">
+                        {state.count}
+                      </span>
+                    )}
+                    {isRunning && (
+                      <span className="mt-2 text-[10px] font-mono text-blue-500 animate-pulse">processing...</span>
+                    )}
+                  </div>
+
+                  {/* Connector */}
+                  {i < PIPELINE_NODES.length - 1 && (
+                    <div className={`flex items-center mt-6 mx-1 transition-colors ${isComplete || nextDone ? 'text-blue-400' : 'text-slate-300'}`}>
+                      <div className={`h-0.5 w-10 ${isComplete || nextDone ? 'bg-blue-400' : 'bg-slate-300'}`} />
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        <path d="M2 5h6M6 2l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Completion banner */}
+        {done && (
+          <div className="px-6 pb-6 text-center">
+            <div className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-2">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7l3.5 3.5L12 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              Pipeline complete — Gap Analysis, Plan, and Drafts tabs updated
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Architecture note */}
+      <div className="border border-slate-200 rounded-xl p-5 bg-slate-50/50">
+        <p className="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-2">How it works</p>
+        <p className="text-xs text-slate-600 font-medium leading-relaxed">
+          Orchestrated by a <span className="font-mono text-blue-700">LangGraph StateGraph</span> with a conditional edge after Gap Analysis —
+          if no gaps are found the graph short-circuits to END, otherwise it continues to the LCEL Planner and Drafter nodes.
+          The Gap Analysis node uses <span className="font-mono text-blue-700">langchain.agents.create_agent</span> (LangChain v1)
+          with <span className="font-mono text-blue-700">lookup_ich_requirement</span> and <span className="font-mono text-blue-700">check_package_section</span> tools.
+        </p>
+      </div>
     </div>
   )
 }

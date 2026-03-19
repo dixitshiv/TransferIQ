@@ -78,6 +78,13 @@ export interface HistoricalComparator {
   lessons_learned: string
 }
 
+export interface PipelineEvent {
+  node?: 'gap_analysis' | 'planner' | 'drafter'
+  status: string
+  gaps?: Gap[]
+  tasks?: Task[]
+}
+
 export const DOC_TYPES = [
   { value: 'tech_transfer_protocol', label: 'Technology Transfer Protocol' },
   { value: 'process_description', label: 'Process Description' },

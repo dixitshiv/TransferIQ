@@ -1,4 +1,8 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
+from tracing import configure_tracing
+configure_tracing()
 import uuid
 import re
 import json as _json
@@ -26,6 +30,7 @@ from agents.gap_analysis import run_gap_analysis
 from agents.planner import run_planner
 from agents.drafter import run_drafter, run_drafter_stream
 from agents.rag import retrieve_similar, index_transfer, init_rag
+from agents.transfer_graph import transfer_graph, TransferState
 from database import (
     init_db,
     db_get_all_transfers, db_get_transfer, db_transfer_exists, db_create_transfer,
@@ -453,6 +458,87 @@ def get_draft_confidence(tid: str, doc_type: str):
         results.append({"section": section, "confidence": confidence, "reason": reason})
 
     return results
+
+
+# ---------------------------------------------------------------------------
+# Full pipeline (LangGraph)
+# ---------------------------------------------------------------------------
+
+@app.post("/api/transfers/{tid}/run-pipeline")
+async def run_pipeline(tid: str, req: DraftRequest):
+    """
+    Run the full transfer workflow as a LangGraph StateGraph:
+        gap_analysis → (if gaps found) → planner → drafter
+
+    Streams SSE events after each node completes:
+        {"node": "gap_analysis", "status": "complete", "gaps": [...]}
+        {"node": "planner",      "status": "complete", "tasks": [...]}
+        {"node": "drafter",      "status": "complete"}
+        {"status": "pipeline_complete"}
+
+    Results are persisted to the database identically to the individual routes.
+    """
+    if not db_transfer_exists(tid):
+        raise HTTPException(404, "Transfer not found")
+    if not db_has_package(tid):
+        raise HTTPException(400, "No documents loaded. Upload a PDF first.")
+
+    t = db_get_transfer(tid)
+    package = db_get_package(tid)
+    package_summary = build_package_summary(package)
+
+    initial_state: TransferState = {
+        "transfer_id": tid,
+        "package_summary": package_summary,
+        "product": t["product"],
+        "sending_org": t["sending_org"],
+        "receiving_org": t["receiving_org"],
+        "doc_type": req.doc_type,
+        "gaps": [],
+        "tasks": [],
+        "draft_content": "",
+        "error": None,
+    }
+
+    log_event(tid, "pipeline_started", f"LangGraph pipeline started (doc_type={req.doc_type})")
+
+    async def event_generator():
+        import json as _json_mod
+        async for event in transfer_graph.astream(initial_state):
+            node_name = next(iter(event))
+            partial = event[node_name]
+
+            if node_name == "gap_analysis":
+                gaps = partial.get("gaps", [])
+                db_set_gaps(tid, gaps)
+                db_update_transfer_status(tid, TransferStatus.gaps_identified)
+                log_event(tid, "gap_analysis_complete", f"{len(gaps)} gaps identified (pipeline)")
+                yield {"data": _json_mod.dumps({"node": "gap_analysis", "status": "complete", "gaps": gaps})}
+
+            elif node_name == "planner":
+                tasks = partial.get("tasks", [])
+                db_set_plan(tid, tasks)
+                db_update_transfer_status(tid, TransferStatus.plan_ready)
+                log_event(tid, "plan_generated", f"{len(tasks)} tasks generated (pipeline)")
+                yield {"data": _json_mod.dumps({"node": "planner", "status": "complete", "tasks": tasks})}
+
+            elif node_name == "drafter":
+                content = partial.get("draft_content", "")
+                db_set_draft(tid, req.doc_type, content)
+                db_update_transfer_status(tid, TransferStatus.draft_complete)
+                log_event(tid, "draft_complete", f"Draft complete (pipeline): {req.doc_type}")
+                yield {"data": _json_mod.dumps({"node": "drafter", "status": "complete"})}
+
+            error = partial.get("error")
+            if error:
+                log_event(tid, "pipeline_error", error)
+                yield {"data": _json_mod.dumps({"status": "error", "message": error})}
+                return
+
+        log_event(tid, "pipeline_complete", "LangGraph pipeline finished")
+        yield {"data": '{"status": "pipeline_complete"}'}
+
+    return EventSourceResponse(event_generator())
 
 
 # ---------------------------------------------------------------------------

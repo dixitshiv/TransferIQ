@@ -1,22 +1,13 @@
-"""LangChain PyPDFLoader wrapper for uploaded PDF documents."""
+"""PDF text extraction for uploaded documents."""
 
-import os
-import tempfile
-from langchain_community.document_loaders import PyPDFLoader
+import io
+import pypdf
 
 
 def extract_text_from_pdf_bytes(content: bytes) -> tuple[str, int]:
     """
-    Write PDF bytes to a temp file, load with PyPDFLoader, return (text, page_count).
-    Cleans up the temp file on exit.
+    Parse PDF bytes with pypdf directly. Returns (text, page_count).
     """
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp:
-        tmp.write(content)
-        tmp_path = tmp.name
-    try:
-        loader = PyPDFLoader(tmp_path)
-        docs = loader.load()
-        text = "\n".join(d.page_content for d in docs)
-        return text, len(docs)
-    finally:
-        os.unlink(tmp_path)
+    reader = pypdf.PdfReader(io.BytesIO(content))
+    pages = [page.extract_text() or "" for page in reader.pages]
+    return "\n".join(pages), len(pages)

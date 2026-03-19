@@ -53,4 +53,4 @@ class CreateTransferRequest(BaseModel):
 
 
 class DraftRequest(BaseModel):
-    doc_type: str
+    doc_type: str = "transfer_summary_report"
