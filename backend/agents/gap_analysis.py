@@ -8,7 +8,7 @@ Primary path (ReAct):
     → JSON gap list output
 
 Fallback path (LCEL chain):
-    ChatPromptTemplate | OllamaLLM | JsonOutputParser
+    ChatPromptTemplate | ChatOllama | JsonOutputParser
     Activated automatically if the ReAct agent errors or returns
     unparseable output.
 """
@@ -22,14 +22,27 @@ import re
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.messages import HumanMessage
-from langchain_ollama import OllamaLLM, ChatOllama
+from langchain_ollama import ChatOllama
 from langchain.tools import tool
 from langchain.agents import create_agent
 
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3.2")
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
-OLLAMA_NUM_CTX = int(os.getenv("OLLAMA_NUM_CTX", "16384"))
-MAX_SUMMARY_CHARS = int(os.getenv("OLLAMA_MAX_SUMMARY_CHARS", "3500"))
+_NUM_CTX_ENV = os.getenv("OLLAMA_NUM_CTX")
+OLLAMA_NUM_CTX = int(_NUM_CTX_ENV) if _NUM_CTX_ENV else None
+_MAX_SUMMARY_ENV = os.getenv("OLLAMA_MAX_SUMMARY_CHARS")
+MAX_SUMMARY_CHARS = int(_MAX_SUMMARY_ENV) if _MAX_SUMMARY_ENV else None
+
+
+def _build_llm_kwargs(temperature: float) -> dict:
+    kwargs = {"model": OLLAMA_MODEL, "temperature": temperature, "base_url": OLLAMA_HOST}
+    if OLLAMA_NUM_CTX is not None:
+        kwargs["num_ctx"] = OLLAMA_NUM_CTX
+    return kwargs
+
+
+def _truncate(text: str) -> str:
+    return text[:MAX_SUMMARY_CHARS] if MAX_SUMMARY_CHARS is not None else text
 
 ICH_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "requirements", "ich_requirements.json")
 
@@ -124,12 +137,12 @@ Identify all gaps between the package and ICH requirements. Return JSON array on
 
 
 def _run_fallback_chain(package_summary: str) -> list[dict]:
-    llm = OllamaLLM(model=OLLAMA_MODEL, temperature=0, base_url=OLLAMA_HOST, num_ctx=OLLAMA_NUM_CTX)
+    llm = ChatOllama(**_build_llm_kwargs(0))
     parser = JsonOutputParser()
     chain = _FALLBACK_PROMPT | llm | parser
     result = chain.invoke({
         "ich_checklist": ICH_CHECKLIST,
-        "package_summary": package_summary[:MAX_SUMMARY_CHARS],
+        "package_summary": _truncate(package_summary),
     })
     return result if isinstance(result, list) else []
 
@@ -172,14 +185,14 @@ def _run_react_agent(package_summary: str) -> list[dict]:
     global _CURRENT_PACKAGE_SUMMARY
     _CURRENT_PACKAGE_SUMMARY = package_summary
 
-    llm = ChatOllama(model=OLLAMA_MODEL, temperature=0, base_url=OLLAMA_HOST, num_ctx=OLLAMA_NUM_CTX)
+    llm = ChatOllama(**_build_llm_kwargs(0))
     # langchain.agents.create_agent — the LangChain v1 standard, built on LangGraph
     # replaces the deprecated langgraph.prebuilt.create_react_agent
     agent = create_agent(llm, TOOLS, system_prompt=SYSTEM_PROMPT)
 
     user_message = (
         f"Analyze this tech transfer package for ICH compliance gaps:\n\n"
-        f"{package_summary[:MAX_SUMMARY_CHARS]}\n\n"
+        f"{_truncate(package_summary)}\n\n"
         "Check all 6 ICH categories using the tools, then output ONLY a JSON array of gap objects."
     )
 

@@ -62,7 +62,7 @@ def _get_collection():
         coll.add(
             ids=[c["id"] for c in comparators],
             documents=docs,
-            embeddings=vectors,
+            embeddings=vectors,  # type: ignore[arg-type]
         )
         logger.info("[RAG] Indexing complete — %d vectors stored.", len(docs))
     else:
@@ -91,7 +91,8 @@ def retrieve_similar(query_text: str, top_k: int = 5) -> list[dict]:
         results = coll.query(query_embeddings=[query_vec], n_results=n)
 
         output = []
-        for cid, dist in zip(results["ids"][0], results["distances"][0]):
+        distances = results["distances"] or [[]]
+        for cid, dist in zip(results["ids"][0], distances[0]):
             if cid in all_comps:
                 comp = dict(all_comps[cid])
                 # ChromaDB cosine distance: 0 = identical, 1 = orthogonal
@@ -115,10 +116,10 @@ def index_transfer(tid: str, text: str) -> None:
         vec = _make_embeddings().embed_documents([text])
         existing = coll.get(ids=[tid])
         if existing["ids"]:
-            coll.update(ids=[tid], documents=[text], embeddings=vec)
+            coll.update(ids=[tid], documents=[text], embeddings=vec)  # type: ignore[arg-type]
             logger.info("[RAG] Updated vector for transfer %s.", tid)
         else:
-            coll.add(ids=[tid], documents=[text], embeddings=vec)
+            coll.add(ids=[tid], documents=[text], embeddings=vec)  # type: ignore[arg-type]
             logger.info("[RAG] Indexed transfer %s.", tid)
     except Exception as exc:
         logger.warning("[RAG] Failed to index transfer %s: %s", tid, exc)

@@ -5,7 +5,6 @@ from tracing import configure_tracing
 configure_tracing()
 import uuid
 import re
-import json as _json
 import asyncio
 import threading
 from io import BytesIO
@@ -17,18 +16,15 @@ from sse_starlette.sse import EventSourceResponse
 from docx import Document as DocxDocument
 from docx.shared import Pt
 
-from models.schemas import (
-    Transfer, TransferStatus, CreateTransferRequest, DraftRequest,
-    Gap, Task, DraftDocument
-)
+from models.schemas import TransferStatus, CreateTransferRequest, DraftRequest
 from agents.ingestion import (
     load_demo_package, build_package_summary, generate_demo_pdf,
-    generate_package_pdf, DEMO_PDF_PATHS, DEMO_PACKAGE_DIRS, PDF_PATH
+    generate_package_pdf, DEMO_PDF_PATHS, PDF_PATH
 )
 from utils.pdf_utils import extract_text_from_pdf_bytes
 from agents.gap_analysis import run_gap_analysis
 from agents.planner import run_planner
-from agents.drafter import run_drafter, run_drafter_stream
+from agents.drafter import run_drafter_stream
 from agents.rag import retrieve_similar, index_transfer, init_rag
 from agents.transfer_graph import transfer_graph, TransferState
 from database import (
@@ -214,9 +210,10 @@ async def upload_docs(tid: str, file: UploadFile = File(...)):
         raise HTTPException(404, "Transfer not found")
     content = await file.read()
     text, page_count = extract_text_from_pdf_bytes(content)
-    db_set_package_key(tid, file.filename, text)
+    filename = file.filename or "uploaded.pdf"
+    db_set_package_key(tid, filename, text)
     db_set_has_demo_data(tid, True)
-    log_event(tid, "file_uploaded", f"Uploaded '{file.filename}' ({page_count} pages)")
+    log_event(tid, "file_uploaded", f"Uploaded '{filename}' ({page_count} pages)")
     # Index into RAG vector store
     threading.Thread(target=index_transfer, args=(tid, text[:4000]), daemon=True).start()
     return {"message": f"Uploaded {file.filename}", "pages": page_count}
@@ -234,6 +231,7 @@ async def run_gap_analysis_stream(tid: str):
         raise HTTPException(400, "No documents loaded. Upload a PDF first.")
 
     package = db_get_package(tid)
+    assert package is not None
     package_summary = build_package_summary(package)
     log_event(tid, "gap_analysis_started", "Gap analysis initiated")
 
@@ -275,6 +273,7 @@ async def generate_plan(tid: str):
         raise HTTPException(400, "Run gap analysis first.")
 
     t = db_get_transfer(tid)
+    assert t is not None
     gaps = db_get_gaps(tid)
 
     tasks = await asyncio.get_event_loop().run_in_executor(
@@ -305,8 +304,10 @@ async def generate_draft(tid: str, req: DraftRequest):
         raise HTTPException(400, "No documents loaded.")
 
     t = db_get_transfer(tid)
+    assert t is not None
     gaps = db_get_gaps(tid)
     package = db_get_package(tid)
+    assert package is not None
 
     product_info = package.get("product_info") or {
         "product_name": t["product"],
@@ -377,8 +378,8 @@ def export_draft_docx(tid: str, doc_type: str):
     doc = DocxDocument()
 
     style = doc.styles["Normal"]
-    style.font.name = "Calibri"
-    style.font.size = Pt(11)
+    style.font.name = "Calibri"  # type: ignore[attr-defined]
+    style.font.size = Pt(11)  # type: ignore[attr-defined]
 
     for line in content.split("\n"):
         stripped = line.rstrip()
@@ -484,7 +485,9 @@ async def run_pipeline(tid: str, req: DraftRequest):
         raise HTTPException(400, "No documents loaded. Upload a PDF first.")
 
     t = db_get_transfer(tid)
+    assert t is not None
     package = db_get_package(tid)
+    assert package is not None
     package_summary = build_package_summary(package)
 
     initial_state: TransferState = {
@@ -550,6 +553,7 @@ def get_similar_transfers(tid: str):
     if not db_transfer_exists(tid):
         raise HTTPException(404, "Transfer not found")
     t = db_get_transfer(tid)
+    assert t is not None
     query = f"{t['product']} transfer from {t['sending_org']} to {t['receiving_org']}"
     package = db_get_package(tid)
     if package:

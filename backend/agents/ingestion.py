@@ -82,7 +82,6 @@ def generate_package_pdf(demo_id: str) -> str:
     from reportlab.lib.units import inch
     from reportlab.lib import colors
     from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, HRFlowable
-    from reportlab.lib.enums import TA_LEFT
 
     output_path = DEMO_PDF_PATHS[demo_id]
     package = load_demo_package(demo_id)

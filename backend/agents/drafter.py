@@ -1,11 +1,19 @@
 import os
-from langchain_ollama import OllamaLLM
+from langchain_ollama import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3.2")
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
-OLLAMA_NUM_CTX = int(os.getenv("OLLAMA_NUM_CTX", "16384"))
+_NUM_CTX_ENV = os.getenv("OLLAMA_NUM_CTX")
+OLLAMA_NUM_CTX = int(_NUM_CTX_ENV) if _NUM_CTX_ENV else None
+
+
+def _build_llm_kwargs(temperature: float) -> dict:
+    kwargs = {"model": OLLAMA_MODEL, "temperature": temperature, "base_url": OLLAMA_HOST}
+    if OLLAMA_NUM_CTX is not None:
+        kwargs["num_ctx"] = OLLAMA_NUM_CTX
+    return kwargs
 
 DOC_DESCRIPTIONS = {
     "method_transfer_protocol": "Analytical Method Transfer Protocol",
@@ -32,7 +40,7 @@ Draft the complete {doc_type_label} document. Use markdown formatting with clear
 
 
 def run_drafter(doc_type: str, product_info: dict, gaps: list[dict]) -> str:
-    llm = OllamaLLM(model=OLLAMA_MODEL, temperature=0.2, base_url=OLLAMA_HOST, num_ctx=OLLAMA_NUM_CTX)
+    llm = ChatOllama(**_build_llm_kwargs(0.2))
     parser = StrOutputParser()
     chain = PROMPT | llm | parser
 
@@ -51,7 +59,7 @@ def run_drafter(doc_type: str, product_info: dict, gaps: list[dict]) -> str:
 
 
 async def run_drafter_stream(doc_type: str, product_info: dict, gaps: list[dict]):
-    llm = OllamaLLM(model=OLLAMA_MODEL, temperature=0.2, streaming=True, base_url=OLLAMA_HOST, num_ctx=OLLAMA_NUM_CTX)
+    llm = ChatOllama(**_build_llm_kwargs(0.2))
     parser = StrOutputParser()
     chain = PROMPT | llm | parser
 
